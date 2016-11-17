@@ -5,3 +5,11 @@ java classes:
 MainActivity (PetAsyncTask)
 Utils
 Pets
+
+Brianne Bindas:
+worked on setting up the main activity for asking the user for input on their location
+
+Java Classes:
+MainActivity
+strings.xml
+activity_main.xml
