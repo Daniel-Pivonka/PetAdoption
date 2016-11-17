@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(ArrayList<Pets> pets) {
-            System.out.println("Done with internet stuff\n");
+            System.out.println(pets.size());
         }
     }
 }

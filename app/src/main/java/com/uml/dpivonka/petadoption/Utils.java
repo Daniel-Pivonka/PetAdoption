@@ -31,7 +31,7 @@ public class Utils {
         String url = "http://api.petfinder.com/pet.find?key=0657eb03f8e01bbe903b5adacdd5bf8c&format=json";
 
         //adding preferences
-        url += "&animal=dog&animal=cat&location=lowell,%20Massachusetts";
+        url += "&location=lowell,%20Massachusetts";
 
         String jsonResponse = null;
         try {
@@ -60,11 +60,38 @@ public class Utils {
                 // Extract out the pet
                 JSONObject jsonPet = jsonPetArray.getJSONObject(x);
 
-                //creat new pet
-                Pets pet = new Pets();
+                //create options array
+                ArrayList<String> options = new ArrayList<String>();
+//                JSONArray ops = jsonPet.getJSONObject("options").getJSONArray("option");
+//                for (int y = 0; y < ops.length(); y++) {
+//                    options.add(ops.getString(y));
+//                }
 
-                //fill pet with info from json
+                //create photo url array
+                ArrayList<String> photoUrl = new ArrayList<String>();
+//                JSONObject photos = jsonPet.getJSONObject("media").getJSONObject("photos");
+//                JSONArray pho = photos.getJSONArray("photo");
+//                for (int w = 0; w < pho.length(); w++) {
+//                    photoUrl.add(pho.getString(w));
+//                }
 
+                //create contact string
+                String contact = "";
+                JSONObject cont = jsonPet.getJSONObject("contact");
+                contact += cont.getString("address1");
+                contact += cont.getString("city");
+                contact += cont.getString("state");
+                contact += cont.getString("zip");
+                contact += cont.getString("phone");
+                contact += cont.getString("email");
+
+                //create new pet
+                Pets pet = new Pets(jsonPet.getString("name"), jsonPet.getString("sex"),
+                                    jsonPet.getString("animal"), jsonPet.getJSONObject("breeds").getString("breed"),
+                                    jsonPet.getString("age"), jsonPet.getString("size"), options,
+                                    jsonPet.getString("description"), photoUrl, contact);
+
+                //add pet to array
                 pets.add(pet);
             }
 
