@@ -31,7 +31,7 @@ public class Utils {
         String url = "http://api.petfinder.com/pet.find?key=0657eb03f8e01bbe903b5adacdd5bf8c&format=json&count=150";
 
         //adding preferences
-        url += "&location=lowell,%20Massachusetts";
+        url += "&location=" + preferences.get(0);
 
         String jsonResponse = null;
         try {

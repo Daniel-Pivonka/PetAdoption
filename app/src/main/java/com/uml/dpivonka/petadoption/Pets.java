@@ -29,4 +29,44 @@ public class Pets {
         PhotoUrl = photoUrl;
         Contact = contact;
     }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getSex() {
+        return Sex;
+    }
+
+    public String getAnimal() {
+        return Animal;
+    }
+
+    public String getBreed() {
+        return Breed;
+    }
+
+    public String getAge() {
+        return Age;
+    }
+
+    public String getSize() {
+        return Size;
+    }
+
+    public ArrayList<String> getOptions() {
+        return Options;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public ArrayList<String> getPhotoUrl() {
+        return PhotoUrl;
+    }
+
+    public String getContact() {
+        return Contact;
+    }
 }
