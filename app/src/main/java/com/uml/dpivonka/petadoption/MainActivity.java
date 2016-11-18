@@ -17,11 +17,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         //get submit button
-        Button button = (Button) findViewById(R.id.button2);
-        //get zip text feild
+        final Button button = (Button) findViewById(R.id.button2);
+        //get zip and city,state text fields
         final EditText zip = (EditText) findViewById(R.id.postal_field);
+        final EditText city = (EditText) findViewById(R.id.city_field);
+        final EditText state = (EditText) findViewById(R.id.state_field);
 
         //if button is clicked
         button.setOnClickListener(new View.OnClickListener()
@@ -30,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
             {
                 //if valid zipcode
                 if(zip.getText().toString().matches("^\\d{5}(?:[-\\s]\\d{4})?$")) {
-                    startAysnc();
+                    startAysnc(zip.getText().toString());
+                } else if (!city.getText().toString().isEmpty() && !state.getText().toString().isEmpty()) {
+                    startAysnc(city.getText().toString() + ",%20" + state.getText().toString());
+                } else {
+                    button.setText("invalid");
                 }
 
             }
@@ -38,13 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void startAysnc(){
-        EditText nameField = (EditText) findViewById(R.id.postal_field);
-        Editable nameEditable = nameField.getText();
-        String name = nameEditable.toString();
-
+    public void startAysnc(String location){
+        System.out.println(location);
         ArrayList<String> preferences = new ArrayList<String>();
-        preferences.add(name);
+        preferences.add(location);
         PetAsyncTask task = new PetAsyncTask();
         task.execute(preferences);
     }
