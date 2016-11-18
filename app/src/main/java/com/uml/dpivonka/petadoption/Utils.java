@@ -28,7 +28,7 @@ public class Utils {
 
     public static ArrayList<Pets> fetchAnimalData(ArrayList<String> preferences) {
 
-        String url = "http://api.petfinder.com/pet.find?key=0657eb03f8e01bbe903b5adacdd5bf8c&format=json";
+        String url = "http://api.petfinder.com/pet.find?key=0657eb03f8e01bbe903b5adacdd5bf8c&format=json&count=150";
 
         //adding preferences
         url += "&location=lowell,%20Massachusetts";
@@ -62,27 +62,39 @@ public class Utils {
 
                 //create options array
                 ArrayList<String> options = new ArrayList<String>();
-//                JSONArray ops = jsonPet.getJSONObject("options").getJSONArray("option");
-//                for (int y = 0; y < ops.length(); y++) {
-//                    options.add(ops.getString(y));
-//                }
+                JSONObject ops = jsonPet.getJSONObject("options");
+                if(ops.has("option")) {
+                    try {
+                        JSONArray op = ops.getJSONArray("option");
+                        for (int y = 0; y < op.length(); y++) {
+
+                            options.add(op.getJSONObject(y).getString("$t"));
+                        }
+                    } catch (JSONException e) {
+                        JSONObject op = ops.getJSONObject("option");
+                        options.add(op.getString("$t"));
+                    }
+                }
 
                 //create photo url array
                 ArrayList<String> photoUrl = new ArrayList<String>();
-//                JSONObject photos = jsonPet.getJSONObject("media").getJSONObject("photos");
-//                JSONArray pho = photos.getJSONArray("photo");
-//                for (int w = 0; w < pho.length(); w++) {
-//                    photoUrl.add(pho.getString(w));
-//                }
+                JSONObject photos = jsonPet.getJSONObject("media");
+                if(photos.has("photos")) {
+                    photos = photos.getJSONObject("photos");
+                    JSONArray pho = photos.getJSONArray("photo");
+                    for (int w = 0; w < pho.length(); w++) {
+                        photoUrl.add(pho.getString(w));
+                    }
+                }
 
                 //create contact string
                 String contact = "";
                 JSONObject cont = jsonPet.getJSONObject("contact");
-                contact += cont.getString("address1");
-                contact += cont.getString("city");
-                contact += cont.getString("state");
-                contact += cont.getString("zip");
-                contact += cont.getString("phone");
+                contact += cont.getString("address1") + " ";
+                contact += cont.getString("city") + " ";
+                contact += cont.getString("state") + " ";
+                contact += cont.getString("zip") + " ";
+                contact += cont.getString("phone") + " ";
                 contact += cont.getString("email");
 
                 //create new pet
@@ -137,7 +149,7 @@ public class Utils {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the Petfinder JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

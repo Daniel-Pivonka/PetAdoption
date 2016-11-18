@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(ArrayList<Pets> pets) {
+
+            //scott take this array of pets and fill the sql database with it
             System.out.println(pets.size());
         }
     }
