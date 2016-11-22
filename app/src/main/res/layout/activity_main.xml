@@ -67,33 +67,31 @@
         android:textAlignment="center" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="293dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:weightSum="1">
+            android:weightSum="1.1">
 
-        <EditText
+       <EditText
             android:id="@+id/city_field"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:hint="City"
             android:textSize="30dp"
             android:inputType="text"
-            android:layout_weight="0.50" />
+           android:layout_weight="0.50" />
 
-        <EditText
+        <Spinner
             android:id="@+id/state_field"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:hint="State"
-            android:textSize="30dp"
-            android:layout_marginLeft="15dp"
-            android:inputType="textCapCharacters"/>
+            android:entries="@array/state_arrays"
+            android:prompt="@string/state_prompt"
+            android:spinnerMode="dropdown"
+            android:layout_weight="0.6" />
 
         </LinearLayout>
-
-        // delete me im for testing the async task
 
     </LinearLayout>
 
