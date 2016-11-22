@@ -1,3 +1,5 @@
+Progress 1
+
 Daniel Pivonka:
 worked on implementing the asynctask that will retrieve pet information from the petfinder api
 
@@ -20,3 +22,5 @@ add and view favorite pets to and from a database.
 
 Project:
 DatabaseApp/DatabasePets
+
+********************************************************************************
