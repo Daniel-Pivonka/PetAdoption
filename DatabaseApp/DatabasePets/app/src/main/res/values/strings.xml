@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DatabasePets</string>
+    <string name="menu_delete">Delete Pet</string>
+    <string name="no_favorites">No Favorites</string>
+</resources>
