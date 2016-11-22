@@ -13,3 +13,10 @@ Java Classes:
 MainActivity
 strings.xml
 activity_main.xml
+
+Scott Mello:
+worked on a mini project that implements a content provider and database used to
+add and view favorite pets to and from a database.
+
+Project:
+DatabaseApp/DatabasePets
