@@ -49,9 +49,6 @@ public class PetTypeActivity extends AppCompatActivity {
                 System.out.println(pets.get(x).getName());
             }
 
-        // make an array of the checked items for Scott to use in
-        // parsing through the data base
-        //boolean isChecked = ((CheckBox) findViewById(R.id.))
         }
 
     }
