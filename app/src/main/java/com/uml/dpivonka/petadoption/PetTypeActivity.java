@@ -16,6 +16,9 @@ import java.util.ArrayList;
  * Created by bbindas on 11/21/16.
  */
 public class PetTypeActivity extends AppCompatActivity {
+
+    ArrayList<Pets> result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,6 @@ public class PetTypeActivity extends AppCompatActivity {
 
     public class PetAsyncTask extends AsyncTask<ArrayList<String>, Void, ArrayList<Pets>>
     {
-
         @Override
         protected ArrayList<Pets> doInBackground(ArrayList<String>... params) {
             ArrayList<String> preferences = null;
@@ -41,7 +43,7 @@ public class PetTypeActivity extends AppCompatActivity {
 
         protected void onPostExecute(ArrayList<Pets> pets) {
 
-            //scott take this array of pets and fill the sql database with it
+            result = pets;
             for (int x = 0; x < pets.size(); x++) {
                 System.out.println(pets.get(x).getName());
             }
@@ -135,6 +137,7 @@ public class PetTypeActivity extends AppCompatActivity {
         petSpecs.add(location);
         startAysnc(petSpecs); // change this to take an ArrayList<String> -> checkSpecs
         intent = new Intent(PetTypeActivity.this, PetListActivity.class);
+        intent.putExtra("results", result);
         startActivity(intent);
     }
 

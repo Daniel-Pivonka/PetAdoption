@@ -106,6 +106,8 @@ public class Utils {
         }
 
         try {
+
+
             JSONObject baseJsonResponse = new JSONObject(jsonResponse);
             baseJsonResponse = baseJsonResponse.getJSONObject("petfinder");
             baseJsonResponse = baseJsonResponse.getJSONObject("pets");
