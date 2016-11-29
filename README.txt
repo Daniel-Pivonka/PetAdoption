@@ -15,8 +15,10 @@ strings.xml
 activity_main.xml
 
 Scott Mello:
-worked on a mini project that implements a content provider and database used to
-add and view favorite pets to and from a database.
+worked on adding the content provider and database to the PetAdoption Project.
 
-Project:
-DatabaseApp/DatabasePets
+JavaClasses:
+FavoritesContentProvider
+FavoritesTable
+PetAdoptionDatabaseHelper
+FavoritesActivity
