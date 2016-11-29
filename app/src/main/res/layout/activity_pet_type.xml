@@ -31,60 +31,75 @@
         android:layout_marginLeft="10dp"/>
 
         <CheckBox
+            android:id="@+id/barnyard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Barnyard"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/bird"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bird"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cat"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/dog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dog"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Horse"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/pig"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pig"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/reptile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reptile"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/small_furry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Small Furry"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -92,21 +107,26 @@
         android:text="Gender of animal?"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        />
 
         <CheckBox
+            android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"
             android:textSize="18sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:onClick="onCheckboxClicked"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -117,32 +137,40 @@
         android:layout_marginLeft="10dp"/>
 
     <CheckBox
+        android:id="@+id/baby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Baby"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/young"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Young"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/adult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adult"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/senior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Senior"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -150,35 +178,44 @@
         android:text="Size of animal?"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Small"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Medium"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Large"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
+        android:id="@+id/extra_large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Extra Large"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:onClick="onCheckboxClicked"/>
 
 </LinearLayout>
 

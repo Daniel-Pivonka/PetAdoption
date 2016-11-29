@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="animal_specs">
+            <item>@string/animal_type_barnyard</item>
+            <item>@string/animal_type_bird</item>
+            <item>@string/animal_type_cat</item>
+            <item>@string/animal_type_dog</item>
+            <item>@string/animal_type_horse</item>
+            <item>@string/animal_type_pig</item>
+            <item>@string/animal_type_reptile</item>
+            <item>@string/animal_type_small_furry</item>
+            <item>@string/animal_sex_male</item>
+            <item>@string/animal_sex_female</item>
+            <item>@string/animal_age_baby</item>
+            <item>@string/animal_age_young</item>
+            <item>@string/animal_age_adult</item>
+            <item>@string/animal_age_senior</item>
+            <item>@string/animal_size_small</item>
+            <item>@string/animal_size_medium</item>
+            <item>@string/animal_size_large</item>
+            <item>@string/animal_size_extra_large</item>
+        </string-array>
+</resources>

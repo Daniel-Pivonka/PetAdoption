@@ -1,70 +1,33 @@
 <resources>
+<<<<<<< Updated upstream
     <string name="app_name">PetAdoption</string>
     <string name="postal_code">Postal Code</string>
     <string name="city">City</string>
     <string name="state">State</string>
     <string name="menu_delete">Delete Pet</string>
     <string name="no_favorites">No Favorites</string>
+=======
+    <string name="animal_type_barnyard" translatable="false">barnyard</string>
+    <string name="animal_type_bird" translatable="false">bird</string>
+    <string name="animal_type_cat" translatable="false">cat</string>
+    <string name="animal_type_dog" translatable="false">dog</string>
+    <string name="animal_type_horse" translatable="false">horse</string>
+    <string name="animal_type_pig" translatable="false">pig</string>
+    <string name="animal_type_reptile" translatable="false">reptile</string>
+    <string name="animal_type_small_furry" translatable="false">small furry</string>
+>>>>>>> Stashed changes
 
-    <string name="state_prompt">Choose a state:</string>
+    <string name="animal_sex_male" translatable="false">male</string>
+    <string name="animal_sex_female" translatable="false">female</string>
 
-    <string-array name="state_arrays">
-        <item>Alabama</item>
-        <item>Alaska</item>
-        <item>American Samoa</item>
-        <item>Arizona</item>
-        <item>Arkansas</item>
-        <item>California</item>
-        <item>Colorado</item>
-        <item>Connecticut</item>
-        <item>Delaware</item>
-        <item>District of Columbia</item>
-        <item>Florida</item>
-        <item>Georgia</item>
-        <item>Guam</item>
-        <item>Hawaii</item>
-        <item>Idaho</item>
-        <item>Illinois</item>
-        <item>Indiana</item>
-        <item>Iowa</item>
-        <item>Kansas</item>
-        <item>Kentucky</item>
-        <item>Louisiana</item>
-        <item>Maine</item>
-        <item>Maryland</item>
-        <item>Massachusetts</item>
-        <item>Michigan</item>
-        <item>Minnesota</item>
-        <item>Mississippi</item>
-        <item>Missouri</item>
-        <item>Montana</item>
-        <item>Nebraska</item>
-        <item>Nevada</item>
-        <item>New Hampshire</item>
-        <item>New Jersey</item>
-        <item>New Mexico</item>
-        <item>New York</item>
-        <item>North Carolina</item>
-        <item>North Dakota</item>
-        <item>Northern Marianas Islands</item>
-        <item>Ohio</item>
-        <item>Oklahoma</item>
-        <item>Oregon</item>
-        <item>Pennsylvania</item>
-        <item>Puerto Rico</item>
-        <item>Rhode Island</item>
-        <item>South Carolina</item>
-        <item>South Dakota</item>
-        <item>Tennessee</item>
-        <item>Texas</item>
-        <item>Utah</item>
-        <item>Vermont</item>
-        <item>Virginia</item>
-        <item>Virgin Islands</item>
-        <item>Washington</item>
-        <item>West Virginia</item>
-        <item>Wisconsin</item>
-        <item>Wyoming</item>
-    </string-array>
+    <string name="animal_age_baby" translatable="false">baby</string>
+    <string name="animal_age_young" translatable="false">young</string>
+    <string name="animal_age_adult" translatable="false">adult</string>
+    <string name="animal_age_senior" translatable="false">senior</string>
+
+    <string name="animal_size_small" translatable="false">small</string>
+    <string name="animal_size_medium" translatable="false">medium</string>
+    <string name="animal_size_large" translatable="false">large</string>
+    <string name="animal_size_extra_large" translatable="false">extra large</string>
 
 </resources>
