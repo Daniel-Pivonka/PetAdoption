@@ -20,28 +20,6 @@ public class PetTypeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_type);
-
-        Intent intent = getIntent();
-        final String location = intent.getStringExtra("location");
-
-        //if button is clicked
-        button.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                // Create a new intent to open the {@link PetListActivity}
-
-                //Intent petListIntent = new Intent(PetTypeActivity.this, PetListActivity.class);
-                if(v != findViewById(R.id.button3)) {
-                    ArrayList<String> checkedSpecs = onCheckboxClicked(v);
-                    checkedSpecs.add(location);
-                }
-                startAysnc(location); // change this to take an ArrayList<String> -> checkSpecs
-                Intent intent = new Intent(PetTypeActivity.this, PetListActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     public void startAysnc(String location){
