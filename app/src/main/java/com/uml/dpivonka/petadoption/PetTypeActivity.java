@@ -56,7 +56,7 @@ public class PetTypeActivity extends AppCompatActivity {
 
     }
 
-    public ArrayList<String> submitPreferences(View view) {
+    public void submitPreferences(View view) {
         ArrayList<String> petSpecs = new ArrayList<String>();
 
         CheckBox cb = (CheckBox) findViewById(R.id.barnyard);
@@ -142,9 +142,6 @@ public class PetTypeActivity extends AppCompatActivity {
         startAysnc(location); // change this to take an ArrayList<String> -> checkSpecs
         intent = new Intent(PetTypeActivity.this, PetListActivity.class);
         startActivity(intent);
-
-        return petSpecs;
-
     }
 
 }
