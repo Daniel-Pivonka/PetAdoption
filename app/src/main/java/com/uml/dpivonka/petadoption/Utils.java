@@ -31,7 +31,62 @@ public class Utils {
         String url = "http://api.petfinder.com/pet.find?key=0657eb03f8e01bbe903b5adacdd5bf8c&format=json&count=150";
 
         //adding preferences
-        url += "&location=" + preferences.get(0);
+        if(preferences.contains("barnyard")){
+            url += "&animal=barnyard";
+        }
+        if(preferences.contains("bird")){
+            url += "&animal=bird";
+        }
+        if(preferences.contains("cat")){
+            url += "&animal=cat";
+        }
+        if(preferences.contains("horse")){
+            url += "&animal=horse";
+        }
+        if(preferences.contains("dog")){
+            url += "&animal=dog";
+        }
+        if(preferences.contains("pig")){
+            url += "&animal=pig";
+        }
+        if(preferences.contains("reptile")){
+            url += "&animal=reptile";
+        }
+        if(preferences.contains("smallfurry")){
+            url += "&animal=smallfurry";
+        }
+        if(preferences.contains("male")){
+            url += "&sex=M";
+        }
+        if(preferences.contains("female")){
+            url += "&sex=F";
+        }
+        if(preferences.contains("baby")){
+            url += "&age=baby";
+        }
+        if(preferences.contains("young")){
+            url += "&age=young";
+        }
+        if(preferences.contains("adult")){
+            url += "&age=adult";
+        }
+        if(preferences.contains("senior")){
+            url += "&age=senior";
+        }
+        if(preferences.contains("small")){
+            url += "&size=S";
+        }
+        if(preferences.contains("medium")){
+            url += "&size=M";
+        }
+        if(preferences.contains("large")){
+            url += "&size=L";
+        }
+        if(preferences.contains("extra-large")){
+            url += "&size=XL";
+        }
+
+        url += "&location=" + preferences.get(preferences.size()-1);
 
         String jsonResponse = null;
         try {
