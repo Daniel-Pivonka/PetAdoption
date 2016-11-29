@@ -19,12 +19,16 @@
         </activity>
         <activity
             android:name=".PetTypeActivity"
-            android:value="PetType"
-            >
+            android:value="PetType">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
+        <activity android:name=".FavoritesActivity"></activity>
+
+        <provider
+            android:name=".contentprovider.FavoritesContentProvider"
+            android:authorities="com.uml.dpivonka.petadoption.contentprovider"></provider>
     </application>
 
 </manifest>

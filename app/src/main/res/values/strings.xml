@@ -3,6 +3,8 @@
     <string name="postal_code">Postal Code</string>
     <string name="city">City</string>
     <string name="state">State</string>
+    <string name="menu_delete">Delete Pet</string>
+    <string name="no_favorites">No Favorites</string>
 
     <string name="state_prompt">Choose a state:</string>
 
