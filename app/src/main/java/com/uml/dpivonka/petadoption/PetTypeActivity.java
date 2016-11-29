@@ -21,7 +21,10 @@ public class PetTypeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_type);
 
+<<<<<<< HEAD
         final Button button = (Button) findViewById(R.id.button3);
+=======
+>>>>>>> 1f08b3aa14f7b83b679f68c2f5f6096a99c9f362
 
         Intent intent = getIntent();
         final String location = intent.getStringExtra("location");
@@ -75,6 +78,7 @@ public class PetTypeActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
     public ArrayList<String> onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -264,6 +268,34 @@ public class PetTypeActivity extends AppCompatActivity {
                 break;
         }
         return petSpecs;
+=======
+//    public void onCheckboxClicked(View view) {
+//        // Is the view now checked?
+//        boolean checked = ((CheckBox) view).isChecked();
+//
+//        for (int i = 0; i < getResources().getStringArray(R.array.animal_specs).length - 1; i++) {
+//
+//        }
+//        //for ()
+//
+//        // Check which checkbox was clicked
+//        switch(view.getId()) {
+//            case R.id.barnyard:
+//                if (checked)
+//                // Put some meat on the sandwich
+//                //else
+//                // Remove the meat
+//                break;
+//            //case R.id.checkbox_cheese:
+//                if (checked)
+//                // Cheese me
+//                //else
+//                // I'm lactose intolerant
+//                break;
+//            // TODO: Veggie sandwich
+//
+//        }
+>>>>>>> 1f08b3aa14f7b83b679f68c2f5f6096a99c9f362
     }
 
 }
