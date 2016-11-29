@@ -27,7 +27,7 @@ public class FavoritesContentProvider extends ContentProvider {
     //database
     private PetAdoptionDatabaseHelper database;
 
-    //used for UriMacher
+    //used for UriMatcher
     private static final int FAVORITES = 10;
     private static final int FAVORITES_ID = 20;
 
@@ -169,6 +169,10 @@ public class FavoritesContentProvider extends ContentProvider {
 
     }
 
+    /**
+     * Checks that when making a query, the columns exist in the database table.
+     * @param projection: String array that represents the columns in the being requested in the query
+     */
     private void CheckColumns(String[] projection) {
         String[] available = {
                 FavoritesTable.COLUMN_NAME,
