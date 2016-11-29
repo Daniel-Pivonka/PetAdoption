@@ -1,12 +1,12 @@
 <resources>
-<<<<<<< Updated upstream
+
     <string name="app_name">PetAdoption</string>
     <string name="postal_code">Postal Code</string>
     <string name="city">City</string>
     <string name="state">State</string>
     <string name="menu_delete">Delete Pet</string>
     <string name="no_favorites">No Favorites</string>
-=======
+
     <string name="animal_type_barnyard" translatable="false">barnyard</string>
     <string name="animal_type_bird" translatable="false">bird</string>
     <string name="animal_type_cat" translatable="false">cat</string>
@@ -15,7 +15,6 @@
     <string name="animal_type_pig" translatable="false">pig</string>
     <string name="animal_type_reptile" translatable="false">reptile</string>
     <string name="animal_type_small_furry" translatable="false">small furry</string>
->>>>>>> Stashed changes
 
     <string name="animal_sex_male" translatable="false">male</string>
     <string name="animal_sex_female" translatable="false">female</string>
