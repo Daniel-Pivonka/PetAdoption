@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
                 //if valid zipcode
                 if(zip.getText().toString().matches("^\\d{5}(?:[-\\s]\\d{4})?$")) {
-                    startAysnc(zip.getText().toString());
+                    petTypeIntent.putExtra("location", zip.getText().toString());
                     startActivity(petTypeIntent);
                 } else if (!city.getText().toString().isEmpty() && !(String.valueOf(spinner1.getSelectedItem()) == "")) {
-                    startAysnc(city.getText().toString() + ",%20" + String.valueOf(spinner1.getSelectedItem()));
+                    petTypeIntent.putExtra("location", city.getText().toString() + ",%20" + String.valueOf(spinner1.getSelectedItem()));
                     startActivity(petTypeIntent);
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -60,34 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void startAysnc(String location){
-        System.out.println(location);
-        ArrayList<String> preferences = new ArrayList<String>();
-        preferences.add(location);
-        PetAsyncTask task = new PetAsyncTask();
-        task.execute(preferences);
-    }
-
-    public class PetAsyncTask extends AsyncTask<ArrayList<String>, Void, ArrayList<Pets>>
-    {
-
-        @Override
-        protected ArrayList<Pets> doInBackground(ArrayList<String>... params) {
-            ArrayList<String> preferences = null;
-            for (ArrayList<String> item : params) {
-                preferences = item;
-            }
-            return Utils.fetchAnimalData(preferences);
-        }
-
-        protected void onPostExecute(ArrayList<Pets> pets) {
-
-            //scott take this array of pets and fill the sql database with it
-            for (int x = 0; x < pets.size(); x++) {
-                System.out.println(pets.get(x).getName());
-            }
-        }
-    }
 
     public void addListenerOnSpinnerItemSelection() {
         spinner1 = (Spinner) findViewById(R.id.state_field);
