@@ -22,10 +22,7 @@ public class PetTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pet_type);
     }
 
-    public void startAysnc(String location){
-        System.out.println(location);
-        ArrayList<String> preferences = new ArrayList<String>();
-        preferences.add(location);
+    public void startAysnc(ArrayList<String> preferences){
         PetAsyncTask task = new PetAsyncTask();
         task.execute(preferences);
     }
@@ -136,7 +133,7 @@ public class PetTypeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String location = intent.getStringExtra("location");
         petSpecs.add(location);
-        startAysnc(location); // change this to take an ArrayList<String> -> checkSpecs
+        startAysnc(petSpecs); // change this to take an ArrayList<String> -> checkSpecs
         intent = new Intent(PetTypeActivity.this, PetListActivity.class);
         startActivity(intent);
     }
