@@ -67,6 +67,7 @@
             android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/horse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Horse"
@@ -216,6 +217,15 @@
         android:textSize="18sp"
         android:layout_marginLeft="20dp"
         android:onClick="onCheckboxClicked"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sumbit"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
 
