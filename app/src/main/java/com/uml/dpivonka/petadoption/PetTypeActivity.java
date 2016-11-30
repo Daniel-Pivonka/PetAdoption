@@ -17,7 +17,6 @@ import java.util.ArrayList;
  */
 public class PetTypeActivity extends AppCompatActivity {
 
-    ArrayList<Pets> result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,32 +24,7 @@ public class PetTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pet_type);
     }
 
-    public void startAysnc(ArrayList<String> preferences){
-        PetAsyncTask task = new PetAsyncTask();
-        task.execute(preferences);
-    }
 
-    public class PetAsyncTask extends AsyncTask<ArrayList<String>, Void, ArrayList<Pets>>
-    {
-        @Override
-        protected ArrayList<Pets> doInBackground(ArrayList<String>... params) {
-            ArrayList<String> preferences = null;
-            for (ArrayList<String> item : params) {
-                preferences = item;
-            }
-            return Utils.fetchAnimalData(preferences);
-        }
-
-        protected void onPostExecute(ArrayList<Pets> pets) {
-
-            result = pets;
-            for (int x = 0; x < pets.size(); x++) {
-                System.out.println(pets.get(x).getName());
-            }
-
-        }
-
-    }
 
     public void submitPreferences(View view) {
         ArrayList<String> petSpecs = new ArrayList<String>();
@@ -135,9 +109,10 @@ public class PetTypeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String location = intent.getStringExtra("location");
         petSpecs.add(location);
-        startAysnc(petSpecs); // change this to take an ArrayList<String> -> checkSpecs
         intent = new Intent(PetTypeActivity.this, PetListActivity.class);
-        intent.putExtra("results", result);
+
+
+        intent.putExtra("preferences", petSpecs.toArray(new String[petSpecs.size()]));
         startActivity(intent);
     }
 
