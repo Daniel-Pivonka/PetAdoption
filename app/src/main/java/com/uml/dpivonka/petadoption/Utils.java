@@ -140,7 +140,7 @@ public class Utils {
                     photos = photos.getJSONObject("photos");
                     JSONArray pho = photos.getJSONArray("photo");
                     for (int w = 0; w < pho.length(); w++) {
-                        photoUrl.add(pho.getString(w));
+                        photoUrl.add(pho.getJSONObject(w).getString("$t"));
                     }
                 }
 
@@ -155,9 +155,9 @@ public class Utils {
                 contact += cont.getString("email");
 
                 //create new pet
-                Pets pet = new Pets(jsonPet.getString("name"), jsonPet.getString("sex"),
-                                    jsonPet.getString("animal"), jsonPet.getJSONObject("breeds").getString("breed"),
-                                    jsonPet.getString("age"), jsonPet.getString("size"), options,
+                Pets pet = new Pets(jsonPet.getJSONObject("name").getString("$t"), jsonPet.getJSONObject("sex").getString("$t"),
+                                    jsonPet.getJSONObject("animal").getString("$t"), jsonPet.getJSONObject("breeds").getString("breed"),
+                                    jsonPet.getJSONObject("age").getString("$t"), jsonPet.getJSONObject("size").getString("$t"), options,
                                     jsonPet.getString("description"), photoUrl, contact);
 
                 //add pet to array

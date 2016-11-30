@@ -29,7 +29,7 @@ public class PetAdapter extends ArrayAdapter<Pets> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.favorites_list, parent, false);
+                    R.layout.favorites_row, parent, false);
         }
 
         Pets currentPet = getItem(positition);
@@ -55,8 +55,10 @@ public class PetAdapter extends ArrayAdapter<Pets> {
         TextView petDescription = (TextView) listItemView.findViewById(R.id.description);
         petDescription.setText(currentPet.getDescription());
 
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
-        ImageLoader.getInstance().displayImage(currentPet.getPhotoUrl().get(0), imageView);
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.petImage);
+        if(!currentPet.getPhotoUrl().isEmpty()) {
+            ImageLoader.getInstance().displayImage(currentPet.getPhotoUrl().get(0), imageView);
+        }
 
         return listItemView;
     }
