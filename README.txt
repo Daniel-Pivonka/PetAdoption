@@ -35,7 +35,13 @@ PetTypeActivity (PetAsyncTask)
 PetAdaptor
 
 Brianne Bindas:
+continued with UI; made it so that there were accurate catches for invalid inputs
+and messages to correspond with them. also, got all of the preferences the user
+selects for the pet that they want and made it so that they were searchable in the 
+database.
 
+PetTypeActivity (submitPrefs)
+multiple xml files
 
 Scott Mello:
 worked on adding the content provider and database to the PetAdoption Project.
