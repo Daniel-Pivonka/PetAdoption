@@ -66,7 +66,7 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
                 FavoritesTable.COLUMN_SIZE,
                 FavoritesTable.COLUMN_DESCRIPTION };
         //fields on the ui to which we map
-        int[] to = new int[] {R.id.name, R.id.gender, R.id.animal, R.id.breed, R.id.age, R.id.size, R.id.description};
+        int[] to = new int[] {R.id.name, R.id.gender, R.id.animal, R.id.breed, R.id.age, R.id.size, };
 
         //TODO: map pet image to layout view
 

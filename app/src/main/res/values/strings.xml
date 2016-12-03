@@ -26,4 +26,11 @@
     <string name="animal_size_large" translatable="false">large</string>
     <string name="animal_size_extra_large" translatable="false">extra large</string>
 
+    <string name="name_label">Name:</string>
+    <string name="gender_label">Gender:</string>
+    <string name="animal_label">Animal:</string>
+    <string name="breed_label">Breed:</string>
+    <string name="age_label">Age:</string>
+    <string name="size_label">Size:</string>
+
 </resources>

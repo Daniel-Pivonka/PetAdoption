@@ -52,8 +52,8 @@ public class PetAdapter extends ArrayAdapter<Pets> {
         TextView petSize = (TextView) listItemView.findViewById(R.id.size);
         petSize.setText(currentPet.getSize());
 
-        TextView petDescription = (TextView) listItemView.findViewById(R.id.description);
-        petDescription.setText(currentPet.getDescription());
+        /*TextView petDescription = (TextView) listItemView.findViewById(R.id.description);
+        petDescription.setText(currentPet.getDescription());*/
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.petImage);
         if(!currentPet.getPhotoUrl().isEmpty()) {
