@@ -33,6 +33,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PetTypeActivity" />
         </activity>
+        <activity
+            android:name=".PetViewActivity"
+            android:value="PetView">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PetListActivity" />
+        </activity>
+
         <activity android:name=".FavoritesActivity"></activity>
 
         <provider

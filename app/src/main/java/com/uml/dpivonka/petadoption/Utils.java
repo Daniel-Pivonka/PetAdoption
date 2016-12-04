@@ -88,8 +88,6 @@ public class Utils {
 
         url += "&location=" + preferences.get(preferences.size()-1);
 
-        System.out.println(url);
-
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(createUrl(url));

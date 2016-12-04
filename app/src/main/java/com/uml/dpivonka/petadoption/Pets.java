@@ -1,11 +1,14 @@
 package com.uml.dpivonka.petadoption;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
 /**
  * Created by dpivonka on 11/15/2016.
  */
-public class Pets {
+public class Pets implements Parcelable {
     private String Name;
     private String Sex;
     private String Animal;
@@ -17,7 +20,7 @@ public class Pets {
     private ArrayList<String> PhotoUrl;
     private String Contact;
 
-    Pets(String name, String sex, String animal, String breed, String age, String size, ArrayList<String> options, String description, ArrayList<String> photoUrl, String contact) {
+    public Pets(String name, String sex, String animal, String breed, String age, String size, ArrayList<String> options, String description, ArrayList<String> photoUrl, String contact) {
         Name = name;
         Sex = sex;
         Animal = animal;
@@ -29,6 +32,31 @@ public class Pets {
         PhotoUrl = photoUrl;
         Contact = contact;
     }
+
+    protected Pets(Parcel in) {
+        Name = in.readString();
+        Sex = in.readString();
+        Animal = in.readString();
+        Breed = in.readString();
+        Age = in.readString();
+        Size = in.readString();
+        Options = in.createStringArrayList();
+        Description = in.readString();
+        PhotoUrl = in.createStringArrayList();
+        Contact = in.readString();
+    }
+
+    public static final Creator<Pets> CREATOR = new Creator<Pets>() {
+        @Override
+        public Pets createFromParcel(Parcel in) {
+            return new Pets(in);
+        }
+
+        @Override
+        public Pets[] newArray(int size) {
+            return new Pets[size];
+        }
+    };
 
     public String getName() {
         return Name;
@@ -68,5 +96,24 @@ public class Pets {
 
     public String getContact() {
         return Contact;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(Name);
+        dest.writeString(Sex);
+        dest.writeString(Animal);
+        dest.writeString(Breed);
+        dest.writeString(Age);
+        dest.writeString(Size);
+        dest.writeStringList(Options);
+        dest.writeString(Description);
+        dest.writeStringList(PhotoUrl);
+        dest.writeString(Contact);
     }
 }

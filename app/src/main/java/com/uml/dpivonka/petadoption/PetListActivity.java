@@ -29,7 +29,9 @@ public class PetListActivity extends AppCompatActivity {
 
     public TextView mEmptyStateTextView;
 
-    private ArrayList<Pets> pets = new ArrayList<Pets>();
+    private static String[] prefs;
+
+    private static ArrayList<Pets> pets;
     // this will be used to display the list of pet options
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,9 @@ public class PetListActivity extends AppCompatActivity {
         petListView.setAdapter(mAdapter);
 
         Intent intent = getIntent();
-        String[] pets = intent.getStringArrayExtra("preferences");
-        startAysnc(new ArrayList<String>(Arrays.asList(pets)));
+        if (intent.getStringArrayExtra("preferences") != null) {
+            prefs = intent.getStringArrayExtra("preferences");
+        }
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -53,7 +56,23 @@ public class PetListActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
-            startAysnc(new ArrayList<String>(Arrays.asList(pets)));
+            if(pets == null){
+                pets = new ArrayList<Pets>();
+                startAysnc(new ArrayList<String>(Arrays.asList(prefs)));
+            } else {
+                View loadingIndicator = findViewById(R.id.loading_indicator);
+                loadingIndicator.setVisibility(View.GONE);
+
+                mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+                mEmptyStateTextView.setText("no pets found");
+
+                mAdapter.clear();
+
+                if (pets != null && !pets.isEmpty()) {
+                    mAdapter.addAll(pets);
+                    mEmptyStateTextView.setText("");
+                }
+            }
         } else {
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
@@ -69,6 +88,9 @@ public class PetListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Find the current pet that was clicked on
                 Pets currentPet = mAdapter.getItem(position);
+
+                Intent intent = new Intent(PetListActivity.this, PetViewActivity.class).putExtra("pet", currentPet);
+                startActivity(intent);
 
             }
         });
@@ -90,7 +112,9 @@ public class PetListActivity extends AppCompatActivity {
             return Utils.fetchAnimalData(preferences);
         }
 
-        protected void onPostExecute(ArrayList<Pets> pets) {
+        protected void onPostExecute(ArrayList<Pets> petss) {
+
+            pets = petss;
 
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
