@@ -50,6 +50,17 @@ FavoritesActivity
 Progress 3
 
 Daniel Pivonka:
+created petlistactivity to show all pets retived
+changed app icon
+changes to json parsing(Utils)
+picked highest resolution image to display in listview for each pet(petAdaptor)
+created petviewactivity
+made a horizontail scrollable view and dynamicly added all images the pet contains(petViewActivity)
+misc. bug fixes
+
+JavaClasses:
+PetListActivity
+PetViewActivity
 
 Brianne Bindas:
 
