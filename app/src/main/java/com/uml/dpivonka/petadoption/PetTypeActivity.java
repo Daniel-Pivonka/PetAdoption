@@ -17,6 +17,7 @@ import java.util.ArrayList;
  */
 public class PetTypeActivity extends AppCompatActivity {
 
+    private static String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +108,9 @@ public class PetTypeActivity extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
-        final String location = intent.getStringExtra("location");
+        if(intent.getStringExtra("location") != null) {
+            location = intent.getStringExtra("location");
+        }
         petSpecs.add(location);
         intent = new Intent(PetTypeActivity.this, PetListActivity.class);
 

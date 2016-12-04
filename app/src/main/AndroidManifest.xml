@@ -31,7 +31,7 @@
             android:value="PetList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".PetTypeActivity" />
         </activity>
         <activity android:name=".FavoritesActivity"></activity>
 
