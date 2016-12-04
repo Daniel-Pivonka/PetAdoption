@@ -12,6 +12,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uml.dpivonka.petadoption.Pets;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by dpivonka on 11/28/2016.
@@ -57,7 +59,22 @@ public class PetAdapter extends ArrayAdapter<Pets> {
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.petImage);
         if(!currentPet.getPhotoUrl().isEmpty()) {
-            ImageLoader.getInstance().displayImage(currentPet.getPhotoUrl().get(0), imageView);
+            int index_largest=0, old_width=0, new_width=0;
+            Pattern p = Pattern.compile("(?:&width=)([0-9]+)");
+            Matcher m = p.matcher(currentPet.getPhotoUrl().get(0));
+            m.find();
+            old_width = Integer.parseInt(m.group(1));
+
+            for(int x = 1; x < currentPet.getPhotoUrl().size(); x++) {
+                m = p.matcher(currentPet.getPhotoUrl().get(x));
+                m.find();
+                new_width = Integer.parseInt(m.group(1));
+                if(new_width > old_width) {
+                    index_largest = x;
+                }
+                old_width = new_width;
+            }
+            ImageLoader.getInstance().displayImage(currentPet.getPhotoUrl().get(index_largest), imageView);
         }
 
         return listItemView;
