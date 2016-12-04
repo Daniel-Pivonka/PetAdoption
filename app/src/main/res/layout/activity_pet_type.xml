@@ -3,19 +3,20 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:scrollIndicators="right"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="10dp">
+    >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Check all that apply."
+        android:hint="Select one from each category."
+        android:textStyle="italic"
         android:textSize="14dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
@@ -30,7 +31,12 @@
         android:textSize="20sp"
         android:layout_marginLeft="10dp"/>
 
-        <CheckBox
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="1">
+
+        <RadioButton
             android:id="@+id/barnyard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +45,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/bird"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +54,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +63,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/dog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +72,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/horse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,7 +81,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/pig"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +90,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/reptile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,7 +99,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/small_furry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,6 +107,7 @@
             android:textSize="18sp"
             android:layout_marginLeft="20dp"
            />
+    </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
@@ -111,7 +118,12 @@
         android:layout_marginLeft="10dp"
         />
 
-        <CheckBox
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="1">
+
+        <RadioButton
             android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,7 +132,7 @@
             android:layout_marginLeft="20dp"
             />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,6 +140,7 @@
             android:textSize="18sp"
             android:layout_marginLeft="20dp"
             />
+    </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
@@ -137,7 +150,12 @@
         android:textSize="20sp"
         android:layout_marginLeft="10dp"/>
 
-    <CheckBox
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="1">
+
+    <RadioButton
         android:id="@+id/baby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -146,7 +164,7 @@
         android:layout_marginLeft="20dp"
         />
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/young"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -155,7 +173,7 @@
         android:layout_marginLeft="20dp"
         />
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/adult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -164,7 +182,7 @@
         android:layout_marginLeft="20dp"
         />
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/senior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -172,6 +190,7 @@
         android:textSize="18sp"
         android:layout_marginLeft="20dp"
         />
+    </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
@@ -181,8 +200,12 @@
         android:textSize="20sp"
         android:layout_marginLeft="10dp"
         />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="1">
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -191,7 +214,7 @@
         android:layout_marginLeft="20dp"
         />
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -200,7 +223,7 @@
         android:layout_marginLeft="20dp"
         />
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -209,7 +232,7 @@
         android:layout_marginLeft="20dp"
         />
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/extra_large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -217,6 +240,7 @@
         android:textSize="18sp"
         android:layout_marginLeft="20dp"
         />
+    </RadioGroup>
 
     <Button
         android:layout_width="wrap_content"
@@ -226,7 +250,8 @@
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"/>
 
 </LinearLayout>
 

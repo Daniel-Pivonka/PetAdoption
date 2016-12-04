@@ -63,6 +63,10 @@ PetListActivity
 PetViewActivity
 
 Brianne Bindas:
+changed the favorites icon to a paw print
+changed the checkboxes to radio buttons
+made fixes with the ui to make it look nicer
+added dividers in list of pets
 
 Scott Mello:
 did the listview item layout over, and created a custom cursor adapter class

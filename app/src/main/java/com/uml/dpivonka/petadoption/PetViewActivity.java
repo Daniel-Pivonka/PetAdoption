@@ -34,10 +34,11 @@ public class PetViewActivity extends AppCompatActivity {
         pet = intent.getParcelableExtra("pet");
 
         LinearLayout ll = (LinearLayout)findViewById(R.id.LinearLayout1);
-        for(int i=0; i<pet.getPhotoUrl().size() ; i++)
+        for(int i=0; i < pet.getPhotoUrl().size() ; i++)
         {
             ImageView ii= new ImageView(this);
             ImageLoader.getInstance().displayImage(pet.getPhotoUrl().get(i), ii);
+            System.out.println(pet.getPhotoUrl().get(i));
             ll.addView(ii);
         }
 
