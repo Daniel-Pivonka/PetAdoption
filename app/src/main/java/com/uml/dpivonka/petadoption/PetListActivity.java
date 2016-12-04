@@ -46,8 +46,10 @@ public class PetListActivity extends AppCompatActivity {
         petListView.setAdapter(mAdapter);
 
         Intent intent = getIntent();
+        boolean pref_changed = false;
         if (intent.getStringArrayExtra("preferences") != null) {
             prefs = intent.getStringArrayExtra("preferences");
+            pref_changed = true;
         }
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -56,7 +58,7 @@ public class PetListActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
-            if(pets == null){
+            if(pets == null || pref_changed == true){
                 pets = new ArrayList<Pets>();
                 startAysnc(new ArrayList<String>(Arrays.asList(prefs)));
             } else {
