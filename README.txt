@@ -45,3 +45,18 @@ FavoritesContentProvider
 FavoritesTable
 PetAdoptionDatabaseHelper
 FavoritesActivity
+
+********************************************************************************
+Progress 3
+
+Daniel Pivonka:
+
+Brianne Bindas:
+
+Scott Mello:
+did the listview item layout over, and created a custom cursor adapter class
+
+JavaClasses:
+PetCursorAdapter
+
+favorites_row.xml
