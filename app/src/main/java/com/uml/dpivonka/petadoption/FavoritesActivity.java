@@ -23,7 +23,7 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
 
     private static final int DELETE_ID = Menu.FIRST + 1;
 
-    private SimpleCursorAdapter adapter;
+    private PetCursorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,25 +55,8 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
     }
 
     private void fillData() {
-        //fields from the database
-        //must include the _id column for the adapter to work
-        String[] from = new String[] {
-                FavoritesTable.COLUMN_NAME,
-                FavoritesTable.COLUMN_GENDER,
-                FavoritesTable.COLUMN_ANIMAL,
-                FavoritesTable.COLUMN_BREED,
-                FavoritesTable.COLUMN_AGE,
-                FavoritesTable.COLUMN_SIZE,
-                FavoritesTable.COLUMN_DESCRIPTION };
-        //fields on the ui to which we map
-        int[] to = new int[] {R.id.name, R.id.gender, R.id.animal, R.id.breed, R.id.age, R.id.size, };
-
-        //TODO: map pet image to layout view
 
         getLoaderManager().initLoader(0, null, this);
-        adapter = new SimpleCursorAdapter(this, R.layout.favorites_row, null, from, to, 0);
-
-        setListAdapter(adapter);
     }
 
     @Override
@@ -103,6 +86,10 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+
+        adapter = new PetCursorAdapter(FavoritesActivity.this, cursor, null);
+
+        setListAdapter(adapter);
         adapter.swapCursor(cursor);
     }
 
