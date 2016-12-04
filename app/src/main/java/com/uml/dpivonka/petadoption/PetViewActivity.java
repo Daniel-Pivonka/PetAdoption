@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uml.dpivonka.petadoption.contentprovider.FavoritesContentProvider;
 import com.uml.dpivonka.petadoption.database.FavoritesTable;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,13 +35,76 @@ public class PetViewActivity extends AppCompatActivity {
         pet = intent.getParcelableExtra("pet");
 
         LinearLayout ll = (LinearLayout)findViewById(R.id.LinearLayout1);
-        for(int i=0; i < pet.getPhotoUrl().size() ; i++)
-        {
+
+
+        // a bunch of complex computation to pick out out the highest
+        // resolutions of the different images provided. this prevents
+        // duplicate images that have different resolutions
+
+        if(pet.getPhotoUrl().size() > 0) {
+            ArrayList<String> same_images = new ArrayList<String>();
+            Pattern p = Pattern.compile("([0-9]+)(?=\\/\\?bust=)"); //find unique images
+            Matcher m = p.matcher(pet.getPhotoUrl().get(0));
+            Pattern px = Pattern.compile("(?:&width=)([0-9]+)"); //find image width
+            Matcher mx;
+            int index_largest=0, old_width=0, new_width=0;
+            m.find();
+            int current_image = Integer.parseInt(m.group(1)); //first image number
+            same_images.add(pet.getPhotoUrl().get(0));// just add it
+
+            for(int i=1; i < pet.getPhotoUrl().size() ; i++)
+            {
+                m = p.matcher(pet.getPhotoUrl().get(i));
+                m.find();
+                if (Integer.parseInt(m.group(1)) == current_image) { //same images numbers
+                    same_images.add(pet.getPhotoUrl().get(i));
+                } else { // diff image
+                    index_largest=0;
+                    old_width=0;
+                    new_width=0;
+                    mx = px.matcher(same_images.get(0));
+                    mx.find();
+                    old_width = Integer.parseInt(mx.group(1));
+
+                    for(int x = 1; x < same_images.size(); x++) {
+                        mx = px.matcher(same_images.get(x));
+                        mx.find();
+                        new_width = Integer.parseInt(mx.group(1));
+                        if(new_width > old_width) {
+                            index_largest = x;
+                        }
+                        old_width = new_width;
+                    }
+                    ImageView ii= new ImageView(this);//found best resolution
+                    ImageLoader.getInstance().displayImage(same_images.get(index_largest), ii);
+                    ll.addView(ii);
+
+                    same_images.clear();
+                    current_image = Integer.parseInt(m.group(1));
+                    same_images.add(pet.getPhotoUrl().get(i));
+                }
+            }
+            index_largest=0;
+            old_width=0;
+            new_width=0;
+            mx = px.matcher(same_images.get(0));
+            mx.find();
+            old_width = Integer.parseInt(mx.group(1));
+
+            for(int x = 1; x < same_images.size(); x++) {
+                mx = px.matcher(same_images.get(x));
+                mx.find();
+                new_width = Integer.parseInt(mx.group(1));
+                if(new_width > old_width) {
+                    index_largest = x;
+                }
+                old_width = new_width;
+            }
             ImageView ii= new ImageView(this);
-            ImageLoader.getInstance().displayImage(pet.getPhotoUrl().get(i), ii);
-            System.out.println(pet.getPhotoUrl().get(i));
+            ImageLoader.getInstance().displayImage(same_images.get(index_largest), ii);
             ll.addView(ii);
         }
+
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener()
