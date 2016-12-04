@@ -27,7 +27,7 @@ public class PetListActivity extends AppCompatActivity {
 
     private PetAdapter mAdapter;
 
-    private TextView mEmptyStateTextView;
+    public TextView mEmptyStateTextView;
 
     private ArrayList<Pets> pets = new ArrayList<Pets>();
     // this will be used to display the list of pet options
@@ -95,13 +95,15 @@ public class PetListActivity extends AppCompatActivity {
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
 
-            //mEmptyStateTextView.setText("no pets found");
-            System.out.println("");
+            mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+            mEmptyStateTextView.setText("no pets found");
+
 
             mAdapter.clear();
 
             if (pets != null && !pets.isEmpty()) {
                 mAdapter.addAll(pets);
+                mEmptyStateTextView.setText("");
             }
 
         }
