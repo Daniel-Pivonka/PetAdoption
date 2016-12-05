@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/background_repeat">
 
     <TextView
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
-        />
+        android:background="@color/glow" />
 
     <TextView
         android:layout_width="match_parent"
@@ -29,12 +29,14 @@
         android:text="What type of animal are you looking for?"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:background="@color/glow" />
 
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_width="139dp"
         android:layout_height="wrap_content"
-        android:checkedButton="1">
+        android:checkedButton="1"
+        android:background="@color/glow">
 
         <RadioButton
             android:id="@+id/barnyard"
@@ -110,18 +112,19 @@
     </RadioGroup>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gender of animal?"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
         android:layout_marginLeft="10dp"
-        />
+        android:background="@color/glow" />
 
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_width="132dp"
         android:layout_height="wrap_content"
-        android:checkedButton="1">
+        android:checkedButton="1"
+        android:background="@color/glow">
 
         <RadioButton
             android:id="@+id/male"
@@ -143,17 +146,19 @@
     </RadioGroup>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="152dp"
         android:layout_height="wrap_content"
         android:text="Age of animal?"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:background="@color/glow" />
 
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:checkedButton="1">
+        android:checkedButton="1"
+        android:background="@color/glow">
 
     <RadioButton
         android:id="@+id/baby"
@@ -193,17 +198,18 @@
     </RadioGroup>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Size of animal?"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
         android:layout_marginLeft="10dp"
-        />
+        android:background="@color/glow" />
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_width="144dp"
         android:layout_height="wrap_content"
-        android:checkedButton="1">
+        android:checkedButton="1"
+        android:background="@color/glow">
 
     <RadioButton
         android:id="@+id/small"

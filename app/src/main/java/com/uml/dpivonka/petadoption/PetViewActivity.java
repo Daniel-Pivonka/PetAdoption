@@ -7,11 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -81,6 +83,12 @@ public class PetViewActivity extends AppCompatActivity {
                         old_width = new_width;
                     }
                     ImageView ii= new ImageView(this);//found best resolution
+                    ii.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.MATCH_PARENT);
+                    params.gravity = Gravity.CENTER;
+                    ii.setLayoutParams(params);
+                    ii.setMinimumWidth(this.getResources().getDisplayMetrics().widthPixels);
                     ImageLoader.getInstance().displayImage(same_images.get(index_largest), ii);
                     ll.addView(ii);
 
@@ -107,7 +115,11 @@ public class PetViewActivity extends AppCompatActivity {
             }
             ImageView ii= new ImageView(this);
             ii.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            ii.setMinimumWidth(this.getResources().getDisplayMetrics().widthPixels+30);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT);
+            params.gravity = Gravity.CENTER;
+            ii.setLayoutParams(params);
+            ii.setMinimumWidth(this.getResources().getDisplayMetrics().widthPixels);
             ImageLoader.getInstance().displayImage(same_images.get(index_largest), ii);
             ll.addView(ii);
         }
@@ -116,19 +128,19 @@ public class PetViewActivity extends AppCompatActivity {
         name.setText(pet.getName());
 
         TextView sex = (TextView) findViewById(R.id.pet_sex);
-        sex.setText(pet.getSex());
+        sex.setText(Html.fromHtml("<b>" + "Gender: " + "</b>" + pet.getSex()));
 
         TextView animal = (TextView) findViewById(R.id.pet_animal);
-        animal.setText(pet.getAnimal());
+        animal.setText(Html.fromHtml("<b>" + "Type: " + "</b>" + pet.getAnimal()));
 
         TextView breed = (TextView) findViewById(R.id.pet_breed);
-        breed.setText(pet.getBreed());
+        breed.setText(Html.fromHtml("<b>" + "Breed: " + "</b>"+ pet.getBreed()));
 
         TextView age = (TextView) findViewById(R.id.pet_age);
-        age.setText(pet.getAge());
+        age.setText(Html.fromHtml("<b>" + "Age: " + "</b>" + pet.getAge()));
 
         TextView size = (TextView) findViewById(R.id.pet_size);
-        size.setText(pet.getSize());
+        size.setText(Html.fromHtml("<b>" + "Size: " + "</b>" + pet.getSize()));
 
         TextView options = (TextView) findViewById(R.id.pet_options);
         String ops = new String();
@@ -137,14 +149,14 @@ public class PetViewActivity extends AppCompatActivity {
                 ops += pet.getOptions().get(x) + ", ";
             }
             ops += pet.getOptions().get(pet.getOptions().size() - 1);
-            options.setText(ops);
+            options.setText(Html.fromHtml("<b>" + "Quick Facts: " + "</b>" + ops));
         }
 
         TextView description = (TextView) findViewById(R.id.pet_description);
-        description.setText(pet.getDescription());
+        description.setText(Html.fromHtml("<b>" + "Description:" + "</b> " + "\n\t" + pet.getDescription()));
 
         TextView contact = (TextView) findViewById(R.id.pet_contact);
-        contact.setText(pet.getContact());
+        contact.setText(Html.fromHtml("<b>"+ "Interested? \n" + "</b>" +  pet.getContact()));
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener()

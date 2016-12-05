@@ -9,7 +9,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:minHeight="500dp">
+        android:minHeight="500dp"
+        android:background="@drawable/background_repeat">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/pet_name"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:fontFamily="cursive"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:paddingTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/glow" />
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView1"
@@ -26,53 +40,119 @@
 
             </LinearLayout>
         </HorizontalScrollView>
-        
-        <TextView
-            android:layout_width="match_parent"
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/pet_name"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:paddingRight="15dp"
+                android:id="@+id/pet_animal"
+                android:background="@color/glow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:paddingLeft="15dp"
+                android:id="@+id/pet_sex"
+                android:background="@color/glow" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:id="@+id/pet_breed"
+                android:background="@color/glow" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pet_sex"/>
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:paddingRight="15dp"
+            android:id="@+id/pet_age"
+            android:background="@color/glow" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pet_animal"/>
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:id="@+id/pet_size"
+            android:background="@color/glow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pet_breed"/>
+            android:paddingTop="5dp"
+            android:textSize="15dp"
+            android:id="@+id/pet_options"
+            android:background="@color/glow" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pet_age"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/pet_size"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/pet_options"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:textSize="15dp"
             android:id="@+id/pet_description"
             android:linksClickable="true"
-            android:autoLink="web"/>
+            android:autoLink="web"
+            android:background="@color/glow" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pet_contact"/>
+            android:paddingTop="5dp"
+            android:textSize="15dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/pet_contact"
+            android:background="@color/glow" />
+
+        </LinearLayout>
 
         <Button
             android:text="Add to Favorites"
