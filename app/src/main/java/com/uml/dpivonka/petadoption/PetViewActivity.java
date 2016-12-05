@@ -132,11 +132,13 @@ public class PetViewActivity extends AppCompatActivity {
 
         TextView options = (TextView) findViewById(R.id.pet_options);
         String ops = new String();
-        for (int x = 0; x < pet.getOptions().size()-1; x++) {
-            ops += pet.getOptions().get(x) + ", ";
+        if(pet.getOptions().size() > 0) {
+            for (int x = 0; x < pet.getOptions().size() - 1; x++) {
+                ops += pet.getOptions().get(x) + ", ";
+            }
+            ops += pet.getOptions().get(pet.getOptions().size() - 1);
+            options.setText(ops);
         }
-        ops += pet.getOptions().get(pet.getOptions().size()-1);
-        options.setText(ops);
 
         TextView description = (TextView) findViewById(R.id.pet_description);
         description.setText(pet.getDescription());
