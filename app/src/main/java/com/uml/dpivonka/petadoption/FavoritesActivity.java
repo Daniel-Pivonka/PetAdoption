@@ -29,6 +29,7 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites_list);
+        findViewById(R.id.delete).setVisibility(View.GONE);
         this.getListView().setDividerHeight(2);
         fillData();
         registerForContextMenu(getListView());
@@ -88,6 +89,8 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 
         adapter = new PetCursorAdapter(FavoritesActivity.this, cursor, null);
+
+        findViewById(R.id.delete).setVisibility(View.VISIBLE);
 
         setListAdapter(adapter);
         adapter.swapCursor(cursor);
