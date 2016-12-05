@@ -2,15 +2,20 @@ package com.uml.dpivonka.petadoption;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -101,10 +106,43 @@ public class PetViewActivity extends AppCompatActivity {
                 old_width = new_width;
             }
             ImageView ii= new ImageView(this);
+            ii.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            ii.setMinimumWidth(this.getResources().getDisplayMetrics().widthPixels+30);
             ImageLoader.getInstance().displayImage(same_images.get(index_largest), ii);
             ll.addView(ii);
         }
 
+        TextView name = (TextView) findViewById(R.id.pet_name);
+        name.setText(pet.getName());
+
+        TextView sex = (TextView) findViewById(R.id.pet_sex);
+        sex.setText(pet.getSex());
+
+        TextView animal = (TextView) findViewById(R.id.pet_animal);
+        animal.setText(pet.getAnimal());
+
+        TextView breed = (TextView) findViewById(R.id.pet_breed);
+        breed.setText(pet.getBreed());
+
+        TextView age = (TextView) findViewById(R.id.pet_age);
+        age.setText(pet.getAge());
+
+        TextView size = (TextView) findViewById(R.id.pet_size);
+        size.setText(pet.getSize());
+
+        TextView options = (TextView) findViewById(R.id.pet_options);
+        String ops = new String();
+        for (int x = 0; x < pet.getOptions().size()-1; x++) {
+            ops += pet.getOptions().get(x) + ", ";
+        }
+        ops += pet.getOptions().get(pet.getOptions().size()-1);
+        options.setText(ops);
+
+        TextView description = (TextView) findViewById(R.id.pet_description);
+        description.setText(pet.getDescription());
+
+        TextView contact = (TextView) findViewById(R.id.pet_contact);
+        contact.setText(pet.getContact());
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener()
