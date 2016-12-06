@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Create default options which will be used for every
-        //  displayImage(...) call if no options will be passed to this method
+        // Create default options which will for  image loader
+        //  displayImage(...)
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .defaultDisplayImageOptions(defaultOptions)
                 .build();
-        ImageLoader.getInstance().init(config); // Do it on Application start
+        ImageLoader.getInstance().init(config);
+
 
         addListenerOnSpinnerItemSelection();
 
@@ -54,12 +55,10 @@ public class MainActivity extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                // Create a new intent to open the {@link NumbersActivity}
+                // Create a new intent to open the PetTypeActivity
                 Intent petTypeIntent = new Intent(MainActivity.this, PetTypeActivity.class);
 
-
-                //if valid zipcode
-                if(zip.getText().toString().matches("^\\d{5}(?:[-\\s]\\d{4})?$")) {
+                if(zip.getText().toString().matches("^\\d{5}(?:[-\\s]\\d{4})?$")) {//if valid zipcode
                     petTypeIntent.putExtra("location", zip.getText().toString());
                     startActivity(petTypeIntent);
                 } else if (!city.getText().toString().isEmpty() && !(String.valueOf(spinner1.getSelectedItem()) == "")) {

@@ -29,25 +29,31 @@ public class PetListActivity extends AppCompatActivity {
 
     public TextView mEmptyStateTextView;
 
+    //hold the preferences static to save state on return
+    // to check if they have changed
     private static String[] prefs;
 
+    //hold pets returned from aysnc static to prevent
+    // unessasary reload
     private static ArrayList<Pets> pets;
-    // this will be used to display the list of pet options
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_list);
 
+        // get views to work with
         TextView mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         ListView petListView = (ListView) findViewById(R.id.list);
 
-
+        //create adapter
         mAdapter = new PetAdapter(this, new ArrayList<Pets>());
         petListView.setAdapter(mAdapter);
 
+        //get preferences passed
         Intent intent = getIntent();
         boolean pref_changed = false;
-        if (intent.getStringArrayExtra("preferences") != null) {
+        if (intent.getStringArrayExtra("preferences") != null) { // prefs were received
             prefs = intent.getStringArrayExtra("preferences");
             pref_changed = true;
         }
@@ -58,10 +64,10 @@ public class PetListActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
-            if(pets == null || pref_changed == true){
+            if(pets == null || pref_changed == true){ //need to fetch pets
                 pets = new ArrayList<Pets>();
                 startAysnc(new ArrayList<String>(Arrays.asList(prefs)));
-            } else {
+            } else { // already have pets or problem
                 View loadingIndicator = findViewById(R.id.loading_indicator);
                 loadingIndicator.setVisibility(View.GONE);
 
@@ -70,8 +76,8 @@ public class PetListActivity extends AppCompatActivity {
 
                 mAdapter.clear();
 
-                if (pets != null && !pets.isEmpty()) {
-                    mAdapter.addAll(pets);
+                if (pets != null && !pets.isEmpty()) { // make sure we have pets
+                    mAdapter.addAll(pets);//fill adapter
                     mEmptyStateTextView.setText("");
                 }
             }
@@ -90,7 +96,7 @@ public class PetListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Find the current pet that was clicked on
                 Pets currentPet = mAdapter.getItem(position);
-
+                //create intent with selected pet attached
                 Intent intent = new Intent(PetListActivity.this, PetViewActivity.class).putExtra("pet", currentPet);
                 startActivity(intent);
 

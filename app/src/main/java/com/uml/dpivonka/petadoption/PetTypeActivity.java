@@ -114,9 +114,9 @@ public class PetTypeActivity extends AppCompatActivity {
             location = intent.getStringExtra("location");
         }
         petSpecs.add(location);
+
+        //create intent for petlistactivity add the preferences to that intent
         intent = new Intent(PetTypeActivity.this, PetListActivity.class);
-
-
         intent.putExtra("preferences", petSpecs.toArray(new String[petSpecs.size()]));
         startActivity(intent);
     }

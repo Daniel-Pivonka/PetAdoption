@@ -38,16 +38,67 @@ public class PetViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_view);
+
+        // get pet passed
         Intent intent = getIntent();
         pet = intent.getParcelableExtra("pet");
 
+        setupImages();
+
+        TextView name = (TextView) findViewById(R.id.pet_name);
+        name.setText(pet.getName());
+
+        TextView sex = (TextView) findViewById(R.id.pet_sex);
+        sex.setText(Html.fromHtml("<b>" + "Gender: " + "</b>" + pet.getSex()));
+
+        TextView animal = (TextView) findViewById(R.id.pet_animal);
+        animal.setText(Html.fromHtml("<b>" + "Type: " + "</b>" + pet.getAnimal()));
+
+        TextView breed = (TextView) findViewById(R.id.pet_breed);
+        breed.setText(Html.fromHtml("<b>" + "Breed: " + "</b>"+ pet.getBreed()));
+
+        TextView age = (TextView) findViewById(R.id.pet_age);
+        age.setText(Html.fromHtml("<b>" + "Age: " + "</b>" + pet.getAge()));
+
+        TextView size = (TextView) findViewById(R.id.pet_size);
+        size.setText(Html.fromHtml("<b>" + "Size: " + "</b>" + pet.getSize()));
+
+        TextView options = (TextView) findViewById(R.id.pet_options);
+        String ops = new String();
+        if(pet.getOptions().size() > 0) {
+            for (int x = 0; x < pet.getOptions().size() - 1; x++) {
+                ops += pet.getOptions().get(x) + ", ";
+            }
+            ops += pet.getOptions().get(pet.getOptions().size() - 1);
+            options.setText(Html.fromHtml("<b>" + "Quick Facts: " + "</b>" + ops));
+        }
+
+        TextView description = (TextView) findViewById(R.id.pet_description);
+        description.setText(Html.fromHtml("<b>" + "Description:" + "</b> " + "\n\t" + pet.getDescription()));
+
+        TextView contact = (TextView) findViewById(R.id.pet_contact);
+        contact.setText(Html.fromHtml("<b>"+ "Interested? \n" + "</b>" +  pet.getContact()));
+
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                AddPetToFavorites(pet, FavoritesContentProvider.CONTENT_URI);
+                Toast.makeText(getApplicationContext(),
+                        "Added to Favorites", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void setupImages() {
+        //get linear lay out to fill with imangeviews
         LinearLayout ll = (LinearLayout)findViewById(R.id.LinearLayout1);
 
-
-        // a bunch of complex computation to pick out out the highest
+        // a bunch of complex computations to pick out out the highest
         // resolutions of the different images provided. this prevents
-        // duplicate images that have different resolutions
-
+        // duplicate images that have different resolutions and forces
+        // the highest resolution to be used
         if(pet.getPhotoUrl().size() > 0) {
             ArrayList<String> same_images = new ArrayList<String>();
             Pattern p = Pattern.compile("([0-9]+)(?=\\/\\?bust=)"); //find unique images
@@ -123,51 +174,6 @@ public class PetViewActivity extends AppCompatActivity {
             ImageLoader.getInstance().displayImage(same_images.get(index_largest), ii);
             ll.addView(ii);
         }
-
-        TextView name = (TextView) findViewById(R.id.pet_name);
-        name.setText(pet.getName());
-
-        TextView sex = (TextView) findViewById(R.id.pet_sex);
-        sex.setText(Html.fromHtml("<b>" + "Gender: " + "</b>" + pet.getSex()));
-
-        TextView animal = (TextView) findViewById(R.id.pet_animal);
-        animal.setText(Html.fromHtml("<b>" + "Type: " + "</b>" + pet.getAnimal()));
-
-        TextView breed = (TextView) findViewById(R.id.pet_breed);
-        breed.setText(Html.fromHtml("<b>" + "Breed: " + "</b>"+ pet.getBreed()));
-
-        TextView age = (TextView) findViewById(R.id.pet_age);
-        age.setText(Html.fromHtml("<b>" + "Age: " + "</b>" + pet.getAge()));
-
-        TextView size = (TextView) findViewById(R.id.pet_size);
-        size.setText(Html.fromHtml("<b>" + "Size: " + "</b>" + pet.getSize()));
-
-        TextView options = (TextView) findViewById(R.id.pet_options);
-        String ops = new String();
-        if(pet.getOptions().size() > 0) {
-            for (int x = 0; x < pet.getOptions().size() - 1; x++) {
-                ops += pet.getOptions().get(x) + ", ";
-            }
-            ops += pet.getOptions().get(pet.getOptions().size() - 1);
-            options.setText(Html.fromHtml("<b>" + "Quick Facts: " + "</b>" + ops));
-        }
-
-        TextView description = (TextView) findViewById(R.id.pet_description);
-        description.setText(Html.fromHtml("<b>" + "Description:" + "</b> " + "\n\t" + pet.getDescription()));
-
-        TextView contact = (TextView) findViewById(R.id.pet_contact);
-        contact.setText(Html.fromHtml("<b>"+ "Interested? \n" + "</b>" +  pet.getContact()));
-
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                AddPetToFavorites(pet, FavoritesContentProvider.CONTENT_URI);
-                Toast.makeText(getApplicationContext(),
-                        "Added to Favorites", Toast.LENGTH_LONG).show();
-            }
-        });
     }
 
     public void AddPetToFavorites(Pets pet, Uri uri) {
