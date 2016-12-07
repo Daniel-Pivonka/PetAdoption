@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class PetAdoptionDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "favoritestable.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
 
     public PetAdoptionDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

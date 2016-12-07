@@ -3,6 +3,7 @@ package com.uml.dpivonka.petadoption;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -15,9 +16,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.uml.dpivonka.petadoption.database.FavoritesTable;
 import com.uml.dpivonka.petadoption.contentprovider.FavoritesContentProvider;
+
+import java.util.HashSet;
 
 public class FavoritesActivity extends ListActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -52,7 +56,34 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+
+        Cursor cursor = adapter.getCursor();
+
+        //Extract properties from cursor
+        String name = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_NAME));
+        String gender = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_GENDER));
+        String animal = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_ANIMAL));
+        String breed = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_BREED));
+        String age = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_AGE));
+        String size = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_SIZE));
+        String image = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_IMAGE_URL));
+        String description = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_DESCRIPTION));
+        String quick_facts = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_QUICK_FACTS));
+        String contact = cursor.getString(cursor.getColumnIndexOrThrow(FavoritesTable.COLUMN_CONTACT));
+
+        Intent i = new Intent(getApplicationContext(), FavoritesViewActivity.class);
+        i.putExtra(FavoritesTable.COLUMN_NAME, name);
+        i.putExtra(FavoritesTable.COLUMN_GENDER, gender);
+        i.putExtra(FavoritesTable.COLUMN_ANIMAL, animal);
+        i.putExtra(FavoritesTable.COLUMN_BREED, breed);
+        i.putExtra(FavoritesTable.COLUMN_AGE, age);
+        i.putExtra(FavoritesTable.COLUMN_SIZE, size);
+        i.putExtra(FavoritesTable.COLUMN_IMAGE_URL, image);
+        i.putExtra(FavoritesTable.COLUMN_DESCRIPTION, description);
+        i.putExtra(FavoritesTable.COLUMN_QUICK_FACTS, quick_facts);
+        i.putExtra(FavoritesTable.COLUMN_CONTACT, contact);
+
+        startActivity(i);
     }
 
     private void fillData() {
@@ -79,7 +110,9 @@ public class FavoritesActivity extends ListActivity implements LoaderManager.Loa
                 FavoritesTable.COLUMN_AGE,
                 FavoritesTable.COLUMN_SIZE,
                 FavoritesTable.COLUMN_DESCRIPTION,
-                FavoritesTable.COLUMN_IMAGE_URL  };
+                FavoritesTable.COLUMN_IMAGE_URL,
+                FavoritesTable.COLUMN_CONTACT,
+                FavoritesTable.COLUMN_QUICK_FACTS };
         CursorLoader cursorLoader = new CursorLoader(this, FavoritesContentProvider.CONTENT_URI, projection, null, null, null);
 
         return cursorLoader;

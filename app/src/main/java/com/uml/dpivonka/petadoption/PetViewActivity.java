@@ -3,7 +3,10 @@ package com.uml.dpivonka.petadoption;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -64,13 +67,9 @@ public class PetViewActivity extends AppCompatActivity {
         size.setText(Html.fromHtml("<b>" + "Size: " + "</b>" + pet.getSize()));
 
         TextView options = (TextView) findViewById(R.id.pet_options);
-        String ops = new String();
+
         if(pet.getOptions().size() > 0) {
-            for (int x = 0; x < pet.getOptions().size() - 1; x++) {
-                ops += pet.getOptions().get(x) + ", ";
-            }
-            ops += pet.getOptions().get(pet.getOptions().size() - 1);
-            options.setText(Html.fromHtml("<b>" + "Quick Facts: " + "</b>" + ops));
+            options.setText(Html.fromHtml("<b>" + "Quick Facts: " + "</b>" + GetQuickFacts(pet)));
         }
 
         TextView description = (TextView) findViewById(R.id.pet_description);
@@ -84,9 +83,12 @@ public class PetViewActivity extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                AddPetToFavorites(pet, FavoritesContentProvider.CONTENT_URI);
-                Toast.makeText(getApplicationContext(),
-                        "Added to Favorites", Toast.LENGTH_LONG).show();
+                try {
+                    AddPetToFavorites(pet, FavoritesContentProvider.CONTENT_URI);
+                    Toast.makeText(getApplicationContext(),
+                            "Added to Favorites", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {}
+
             }
         });
     }
@@ -186,7 +188,9 @@ public class PetViewActivity extends AppCompatActivity {
         values.put(FavoritesTable.COLUMN_AGE, pet.getAge());
         values.put(FavoritesTable.COLUMN_SIZE, pet.getSize());
         values.put(FavoritesTable.COLUMN_DESCRIPTION, pet.getDescription());
-        values.put(FavoritesTable.COLUMN_NAME, pet.getName());
+        values.put(FavoritesTable.COLUMN_QUICK_FACTS, GetQuickFacts(pet));
+        values.put(FavoritesTable.COLUMN_CONTACT, pet.getContact());
+
         //get biggest image
         int index_largest=0, old_width=0, new_width=0;
         Pattern p = Pattern.compile("(?:&width=)([0-9]+)");
@@ -221,4 +225,17 @@ public class PetViewActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public String GetQuickFacts(Pets pet) {
+
+        String facts = "";
+
+        for (String fact : pet.getOptions()) {
+            facts += fact;
+
+            if (fact != pet.getOptions().get(pet.getOptions().size() - 1)) {
+                facts += ", ";
+            }
+        }
+        return facts;
+    }
 }

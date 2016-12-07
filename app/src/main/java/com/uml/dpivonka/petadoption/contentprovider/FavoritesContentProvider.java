@@ -183,6 +183,8 @@ public class FavoritesContentProvider extends ContentProvider {
                 FavoritesTable.COLUMN_SIZE,
                 FavoritesTable.COLUMN_DESCRIPTION,
                 FavoritesTable.COLUMN_IMAGE_URL,
+                FavoritesTable.COLUMN_QUICK_FACTS,
+                FavoritesTable.COLUMN_CONTACT,
                 FavoritesTable.COLUMN_ID };
 
         if (projection != null) {

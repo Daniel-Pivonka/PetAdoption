@@ -257,7 +257,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="5dp"/>
+        android:theme="@style/AppTheme.Button"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded_button"/>
 
 </LinearLayout>
 

@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="glow">#d7ffffff</color>
+    <color name="background_color">#FFFFFF</color>
+    <color name="border_color">#0000ff</color>
+    <color name="light_green">#80ff80</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Blue">#0000ff</color>
 </resources>

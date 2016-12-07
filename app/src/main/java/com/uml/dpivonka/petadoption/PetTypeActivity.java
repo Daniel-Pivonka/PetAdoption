@@ -27,8 +27,6 @@ public class PetTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pet_type);
     }
 
-
-
     public void submitPreferences(View view) {
         ArrayList<String> petSpecs = new ArrayList<String>();
 

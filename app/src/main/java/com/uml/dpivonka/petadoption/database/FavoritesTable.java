@@ -20,6 +20,8 @@ public class FavoritesTable {
     public static final String COLUMN_SIZE = "size";
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_IMAGE_URL = "image";
+    public static final String COLUMN_QUICK_FACTS = "quick_facts";
+    public static final String COLUMN_CONTACT = "contact";
 
     //database creation SQL statement
     private static final String DATABASE_CREATE = "CREATE TABLE " + TABLE_FAVORITES + " ("
@@ -31,7 +33,9 @@ public class FavoritesTable {
             + COLUMN_AGE + " TEXT,"
             + COLUMN_SIZE + " TEXT,"
             + COLUMN_DESCRIPTION + " TEXT,"
-            + COLUMN_IMAGE_URL + " TEXT"
+            + COLUMN_IMAGE_URL + " TEXT,"
+            + COLUMN_CONTACT + " TEXT,"
+            + COLUMN_QUICK_FACTS + " TEXT"
             + ");";
 
     public static void onCreate(SQLiteDatabase database) {

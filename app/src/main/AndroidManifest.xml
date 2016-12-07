@@ -41,6 +41,8 @@
                 android:value=".PetListActivity" />
         </activity>
 
+
+        <activity android:name=".FavoritesViewActivity"></activity>
         <activity android:name=".FavoritesActivity"></activity>
 
         <provider
