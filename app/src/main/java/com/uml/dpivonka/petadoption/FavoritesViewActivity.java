@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +83,7 @@ public class FavoritesViewActivity extends AppCompatActivity {
             descriptionView.setText(Html.fromHtml("<b>" + "Description: " + "</b>" + description));
             contactsView.setText(Html.fromHtml("<b>"+ "Interested? \n" + "</b>" + contact));
         }
+        Linkify.addLinks(contactsView, Linkify.PHONE_NUMBERS|Linkify.EMAIL_ADDRESSES);
     }
     private void SetImage(String imageUrl) {
         LinearLayout ll = (LinearLayout)findViewById(R.id.LinearLayout1);

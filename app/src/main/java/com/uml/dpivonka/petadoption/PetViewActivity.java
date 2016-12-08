@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.text.util.Linkify;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
@@ -77,6 +78,7 @@ public class PetViewActivity extends AppCompatActivity {
 
         TextView contact = (TextView) findViewById(R.id.pet_contact);
         contact.setText(Html.fromHtml("<b>"+ "Interested? \n" + "</b>" +  pet.getContact()));
+        Linkify.addLinks(contact, Linkify.PHONE_NUMBERS|Linkify.EMAIL_ADDRESSES);
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener()

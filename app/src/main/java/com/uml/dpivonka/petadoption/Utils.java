@@ -166,20 +166,25 @@ public class Utils {
                     contact += cont.getJSONObject("address1").getString("$t");
                 } catch (JSONException e) {}
                 try {
-                    contact += cont.getJSONObject("city").getString("$t") + " ";
+                    contact += cont.getJSONObject("city").getString("$t") + ", ";
                 } catch (JSONException e) {}
                 try {
-                    contact += cont.getJSONObject("state").getString("$t") + " ";
+                    contact += cont.getJSONObject("state").getString("$t") + ", ";
                 } catch (JSONException e) {}
                 try {
-                    contact += cont.getJSONObject("zip").getString("$t") + " ";
+                    contact += cont.getJSONObject("zip").getString("$t") + ", ";
                 } catch (JSONException e) {}
                 try {
-                    contact += cont.getJSONObject("phone").getString("$t") + " ";
+                    contact += cont.getJSONObject("phone").getString("$t") + ", ";
                 } catch (JSONException e) {}
                 try {
                     contact += cont.getJSONObject("email").getString("$t");
                 } catch (JSONException e) {}
+
+                if(contact.charAt(contact.length()-2) == ',') {
+                    contact = contact.substring(0, contact.length()-3);
+                }
+
 
                 String description = "";
                 try {
